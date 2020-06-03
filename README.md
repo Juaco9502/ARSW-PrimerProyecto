@@ -66,4 +66,4 @@ java -cp target/miprimera-app-1.0-SNAPSHOT.jar edu.escuelaing.arem.ASE.app.App s
 
 ## LICENSE
 
-This project is licensed under the GNU General Public License - [LICENSE](LICENSE) 
+This project is licensed under the GNU General Public License - [LICENSE](LICENSE.TXT) 

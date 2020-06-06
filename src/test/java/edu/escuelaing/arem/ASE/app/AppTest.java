@@ -1,7 +1,7 @@
 package edu.escuelaing.arem.ASE.app;
 
-import edu.escuelaing.arem.ASE.app.model.line.LOCLine;
-import edu.escuelaing.arem.ASE.app.model.line.PhysicalLine;
+import edu.escuelaing.arem.ASE.app.calculations.Count;
+import edu.escuelaing.arem.ASE.app.linkedlist.LinkedList;
 import org.junit.Test;
 import static org.junit.Assert.assertTrue;
 import java.io.*;
@@ -16,25 +16,34 @@ public class AppTest {
     }
 
     /**
-    * Should correctly count the physical lines on the ArchiveTest.java file
+    * Calculate average and Standard deviation of the elements of the file DevelopmentHours.txt
     */
     @Test    
-    public void CalculateTheNumberOfPhysicalLinesOfTheFile() throws IOException{
-        String file = "src/test/resources/ArchiveTest.java";
-        PhysicalLine physicalLine = new PhysicalLine();
-        int result = physicalLine.countLines(file);
-        assertTrue(result == 14);
+    public void CalculateAverageAndStandardDeviationFileItemsTestOption1() throws IOException{
+        String file = "src/test/resources/DevelopmentHours.txt";
+        Count count = new Count();
+        LinkedList list = new LinkedList();
+        list = count.createList(file);
+        float result = count.average(list);
+        float result2 = count.standardDeviation(list);
+        assertTrue(result == (float) 60.32);
+        assertTrue(result2 == (float) 62.255833);
     }
-    
+
+            
     /**
-    * Should correctly count the physical lines on the ArchiveTest.java file
+    * Calculate average and Standard deviation of the elements of the file ProxySize.txt
     */
     @Test    
-    public void CalculateTheNumberOfLOCLinesOfTheFile() throws IOException{
-        String file = "src/test/resources/ArchiveTest.java";
-        LOCLine locLine = new LOCLine();
-        int result = locLine.countLines(file);
-        assertTrue(result == 6);
+    public void CalculateAverageAndStandardDeviationFileItemsTestOption2() throws IOException{
+        String file = "src/test/resources/ProxySize.txt";
+        Count count = new Count();
+        LinkedList list = new LinkedList();
+        list = count.createList(file);
+        float result = count.average(list);
+        float result2 = count.standardDeviation(list);
+        assertTrue(result == (float) 550.6);
+        assertTrue(result2 == (float)572.02686);
     }
 
     /**
@@ -42,16 +51,18 @@ public class AppTest {
     */
     @Test
     public void DoesNotCalculateNonexistentFileLines(){
-        String file = "src/test/resources/NonExistentFile.java";
-        PhysicalLine physicalLine = new PhysicalLine();
-        LOCLine locLine = new LOCLine();
-        try {            
-            int result = physicalLine.countLines(file);
-            int result2 = locLine.countLines(file);
+        String file = "src/test/resources/FileNoExist.txt";
+        Count count = new Count();
+        LinkedList list = new LinkedList();
+        try { 
+            list = count.createList(file);
+            float result = count.average(list);
+            float result2 = count.standardDeviation(list);
         } catch (IOException e){
             assertTrue(true);
         }
     }
 }
+
 
 

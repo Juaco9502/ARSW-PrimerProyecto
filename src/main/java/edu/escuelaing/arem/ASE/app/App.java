@@ -1,8 +1,10 @@
 package edu.escuelaing.arem.ASE.app;
 
-import edu.escuelaing.arem.ASE.app.model.line.LOCLine;
-import edu.escuelaing.arem.ASE.app.model.line.PhysicalLine;
-import java.io.IOException;
+import edu.escuelaing.arem.ASE.app.calculations.Count;
+import edu.escuelaing.arem.ASE.app.linkedlist.LinkedList;
+import java.io.FileNotFoundException;
+
+
 
     /**
      * Class App
@@ -17,18 +19,26 @@ public class App
      */
     public static void main( String[] args )
     {
-        PhysicalLine physicalLine = new PhysicalLine();
-        LOCLine locLine = new LOCLine();
-        String file = args[0];
-        try{
-                
-        	int resultphysi = physicalLine.countLines(file);
-                int resultloc = locLine.countLines(file);
-        	System.out.println("File selected: "+file);
-        	System.out.println("Physical Lines: "+resultphysi);
-                System.out.println("LOC Lines: "+resultloc);
-        } catch (IOException e){
-        	System.out.println("Error: Invalid file");
-        }
-    }
+    	Count count = new Count();
+    	String file = "";
+    	LinkedList list = new LinkedList();
+
+    	try{
+        	file = args[0];
+    	} catch (ArrayIndexOutOfBoundsException e){
+    		System.out.println("Did not specify the file path");
+    	}
+
+    	try{
+    		list = count.createList(file);
+    	} catch (FileNotFoundException e){
+    		System.out.println("The specified file does not exist");
+    	}
+
+    	float average = count.average(list);
+        System.out.println("Average: " +average);
+    	float standardDev = count.standardDeviation(list);
+        System.out.println("Standard deviation: " +standardDev);
+    	
+    }  
 }

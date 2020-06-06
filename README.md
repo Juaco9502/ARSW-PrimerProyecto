@@ -1,25 +1,29 @@
-# HOMEWORK 1 ARSW (LOC Counting)
+# HOMEWORK 2 ARSW (OO Design)
 
-Write a program to Count the Lines of Code of a source file. The Lines Of Code (LOC) of a program are often used as software metric to compare complexity and to measure productivity.
+Write a program to calculate the mean and standard deviation of a set of n real numbers.
 
 # LOC/H
 
-1. 11:00 am - 1:00 pm - fueron en total 89 LOC
-2. 1:20 pm - 2:40 pm - fueron en total 54 LOC
-3. 10:20 pm - 12:10 pm - fueron en total 47 LOC
+1. 7:00 am - 12:00 pm - fueron en total  172 LOC
+2. 2:00 pm - 4:40 pm - fueron en total  143 LOC
+Total LOC (315/7) =  45 LOC
 
-# PROJECT DOCUMENT
+# DESIGN
+![Diagram](img/diagram.JPEG)
 
-Architecture, design and testing of the application.
+# TEST REPORT
+![Test1](img/test1.PNG)
+![Test2](img/test2.PNG)
+![Test3](img/test3.PNG)
 
-[Project document](https://drive.google.com/file/d/1Vws124va-Fg-fxXXdw9XtiB1jErhvAGs/view?usp=sharing)
-
+## TOTAL TEST
+![fullTest](img/fullTest.PNG)
 
 # START
 
-Copie el proyecto via git clone en cualquier diretorio para empezar a trabajar:
+Copy the project through git clone in any direction to start working:
 ```
-git clone https://github.com/vashigo/LOC-Counting-Assignment-Kit_Tarea1-ARSW.git
+git clone https://github.com/Juaco9502/ARSW-Dise-oDeSistemas-OO.git
 ```
 
 ## PRE-REQUISITES
@@ -46,7 +50,11 @@ mvn javadoc:javadoc
 The following command must be used in the project root folder:
   
 ```
-java -cp target/miprimera-app-1.0-SNAPSHOT.jar edu.escuelaing.arem.ASE.app.App src/test/resources/ArchiveTest.java
+java -cp target/OOGenerics-1.0-SNAPSHOT.jar edu.escuelaing.arem.ASE.app.App src/test/resources/ProxySize.txt
+```
+
+```
+java -cp target/OOGenerics-1.0-SNAPSHOT.jar edu.escuelaing.arem.ASE.app.App src/test/resources/DevelopmentHours.txt
 ```
 
 ![Proyecto](img/1.PNG)
@@ -66,4 +74,4 @@ java -cp target/miprimera-app-1.0-SNAPSHOT.jar edu.escuelaing.arem.ASE.app.App s
 
 ## LICENSE
 
-This project is licensed under the GNU General Public License - [LICENSE](LICENSE.TXT) 
+This project is licensed under the GNU General Public License - [LICENSE](LICENSE) 
